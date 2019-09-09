@@ -17,7 +17,7 @@ final class Author extends Model{
     return $this->belongsTo('App\Models\Country');
   }
 
-  public function authors()
+  public function books()
   {
     return $this->hasManyThrough('App\Models\Book', 'App\Models\BookAuthor', 'author_id', 'id', 'id', 'book_id');
   }

@@ -42,4 +42,9 @@ class AuthorsController extends Controller
     $author->delete();
     return response(null, 204);
   }
+
+  public function books($id)
+  {
+    return response()->json(['books' => Author::find($id)->books]);
+  }
 }

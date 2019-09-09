@@ -38,9 +38,11 @@ $router->get('/', function () use ($router) {
   $router->post('authors', 'AuthorsController@create');
   $router->put('authors/{id}', 'AuthorsController@update');
   $router->delete('authors/{id}', 'AuthorsController@destroy');
+  $router->get('authors/{id}/books', 'AuthorsController@books');
 
   $router->get('books', 'BooksController@index');
   $router->get('books/{id}', 'BooksController@show');
   $router->post('books', 'BooksController@create');
   $router->put('books/{id}', 'BooksController@update');
   $router->delete('books/{id}', 'BooksController@destroy');
+  $router->get('books/{id}/authors', 'BooksController@authors');

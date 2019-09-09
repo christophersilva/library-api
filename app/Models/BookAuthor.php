@@ -3,10 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 final class BookAuthor extends Model{
-  use SoftDeletes;
+  protected $table = 'books_authors';
 
   protected $fillable = ['author_id', 'book_id'];
 

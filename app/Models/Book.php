@@ -31,4 +31,11 @@ final class Book extends Model{
   {
     return $this->belongsTo('App\Models\Country');
   }
+
+  public function add_authors($ids)
+  {
+    foreach ($ids['authors_ids'] as $author_id) {
+      BookAuthor::create(['book_id' => $this->id, 'author_id' => $author_id]);
+    }
+  }
 }

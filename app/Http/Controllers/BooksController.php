@@ -24,6 +24,7 @@ class BooksController extends Controller
   {
     $data = $request->only('title', 'subtitle', 'isbn', 'language_id', 'country_id', 'programming_language_id', 'published_at');
     $book = Book::create($data);
+    $book->add_authors($request->only('authors_ids'));
     return response()->json(['book' => $book], 201);
   }
 
@@ -41,5 +42,10 @@ class BooksController extends Controller
     $book = Book::find($id);
     $book->delete();
     return response(null, 204);
+  }
+
+  public function authors($id)
+  {
+    return response()->json(['authors' => Book::find($id)->authors]);
   }
 }
